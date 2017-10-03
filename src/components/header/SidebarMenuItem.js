@@ -3,12 +3,15 @@ import styled from 'styled-components'
 import { Image, Header} from 'semantic-ui-react'
 import logo from '../../assets/informatique.svg'
 
+
+
 //composant du menu de l'entéte du site constitué d'une image lien pour la catégorie
 // d'un titre(lien) et de quelques liens de produits
 //Données néccéssaires pour le composant: 
 // la source de l'image décrivant la branche ,
 // le titre de la branche,
 // le nom de 5 produit de la branche en question 
+
 
 const Styledheader = styled(Header)`
    &&&{
@@ -39,7 +42,7 @@ const SidebarMenuItem = styled(UnstyledSidebarMenuItem)`
       grid-template-columns: 1fr 3fr;
       grid-column-gap: 3px;
       padding:3px;
-      
+            
 
       
    }
