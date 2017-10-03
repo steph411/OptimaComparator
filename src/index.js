@@ -10,4 +10,3 @@ import {Provider} from 'mobx-react';
 ReactDOM.render(<Provider BirdStore={store} ><App/></Provider>, document.getElementById('root'));
 registerServiceWorker();
 
-
