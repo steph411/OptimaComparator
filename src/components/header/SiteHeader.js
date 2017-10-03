@@ -4,17 +4,20 @@ import { Button,  Sidebar} from 'semantic-ui-react'
 import SidebarMenu from './SidebarMenu'
 import styled from 'styled-components'
 
+
+
 const Styledp = styled.div`
 {
    height: 2000px; 
 }
 `;
 
+
 const div = styled.div`
    {
       background-color: #EEF4ED;  
    }
-`
+`;
 
 
 @inject('BirdStore')
