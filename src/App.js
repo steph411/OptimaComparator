@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-//import './App.css';
-import {inject, observer} from 'mobx-react';
 import SiteHeader from './components/header/SiteHeader';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import changeVisibility from './actions/headerActions';
 
 
 const Styledp = styled.div`
@@ -11,14 +12,14 @@ const Styledp = styled.div`
    }
 `;
 
-@inject('BirdStore')
-@observer
 class App extends Component{
 
    render(){
       return(
          <div  className="App">
-            <SiteHeader/>
+            <SiteHeader  
+            changeVisibility={this.props.changeVisibility} 
+            visibility={this.props.reducer.visibility} />
             <Styledp/>
          </div>
 
@@ -26,4 +27,16 @@ class App extends Component{
    }
 }
 
-export default App;
+
+const mapStateToProps = (store) => {
+    return {
+        reducer: store
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ changeVisibility }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+

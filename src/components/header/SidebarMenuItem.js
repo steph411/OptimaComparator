@@ -1,13 +1,12 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Image, Header} from 'semantic-ui-react'
-import logo from '../../assets/informatique.svg'
+import React from 'react';
+import styled from 'styled-components';
+import { Image, Header } from 'semantic-ui-react';
+import logo from '../../assets/informatique.svg';
 
 
-
-//composant du menu de l'entéte du site constitué d'une image lien pour la catégorie
+// composant du menu de l'entéte du site constitué d'une image lien pour la catégorie
 // d'un titre(lien) et de quelques liens de produits
-//Données néccéssaires pour le composant: 
+// Données néccéssaires pour le composant: 
 // la source de l'image décrivant la branche ,
 // le titre de la branche,
 // le nom de 5 produit de la branche en question 
@@ -19,21 +18,21 @@ const Styledheader = styled(Header)`
    }
 `;
 
-//composant élément du menu de la barre du haut non stylé
+// composant élément du menu de la barre du haut non stylé
 
 const UnstyledSidebarMenuItem = (props) => {
-   return(
+   return (
       <div className={props.className} >
-         <Image height={60} rounded src={logo} />
+         <Image height={60}  src={logo} />
          <div>
-            <Styledheader className={props.className} as='h4'>informatique</Styledheader>
+            <Styledheader className={props.className} as="h4" >informatique</Styledheader>
             <p>product , product, product, product</p>
          </div>
       </div>
    );
 };
 
-//composant de la barre du haut avec des styles css appliqués
+// composant de la barre du haut avec des styles css appliqués
 
 
 const SidebarMenuItem = styled(UnstyledSidebarMenuItem)`

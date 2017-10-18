@@ -1,8 +1,10 @@
-import React,{Component} from 'react';
-import {inject, observer} from 'mobx-react';
-import { Button,  Sidebar} from 'semantic-ui-react'
-import SidebarMenu from './SidebarMenu'
-import styled from 'styled-components'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Button,  Sidebar } from 'semantic-ui-react';
+import SidebarMenu from './SidebarMenu';
+import styled from 'styled-components';
+import changeVisibility from '../../actions/headerActions';
+import { bindActionCreators } from 'redux';
 
 
 
@@ -20,17 +22,18 @@ const div = styled.div`
 `;
 
 
-@inject('BirdStore')
-@observer
 
-class SiteHeader extends Component{
-//composant definissant l'entète du site avec le menu de l'entète
+
+class SiteHeader extends Component {
+    constructor(props){
+        super(props);
+        this.toggleVisibility = this.toggleVisibility.bind(this);
+    }
+// composant definissant l'entète du site avec le menu de l'entète
 
    toggleVisibility = () => {
-
-      //methode pour changer la visibilité du menu de l'entete
-
-      this.props.BirdStore.changevisibility();
+      // methode pour changer la visibilité du menu de l'entete
+        this.props.changeVisibility();
    }
 //
    render(){
@@ -38,13 +41,12 @@ class SiteHeader extends Component{
          <div>
             <Button onClick={this.toggleVisibility}>Toggle Visibility</Button>
             <Sidebar.Pushable as={div}>
-               <Sidebar as={SidebarMenu} animation='overlay' direction='top' visible={this.props.BirdStore.visibility} wide >
-                  <SidebarMenu></SidebarMenu>
+               <Sidebar as={SidebarMenu} animation="overlay" direction="top" visible={this.props.visibility} wide >
+                  <SidebarMenu/>
+
                </Sidebar>
                <Sidebar.Pusher>
-
-                  <Styledp/>
-                  
+                  <Styledp/>                  
                </Sidebar.Pusher>
             </Sidebar.Pushable>
          </div>
@@ -52,4 +54,7 @@ class SiteHeader extends Component{
    }
 }
 
+
 export default SiteHeader;
+
+

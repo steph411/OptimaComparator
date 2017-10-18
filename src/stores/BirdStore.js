@@ -1,10 +1,10 @@
-import {observable, computed, action} from 'mobx';
+import {observable, action} from 'mobx';
 
 
 class BirdStore {
 
    @observable visibility = false;
-   @action changevisibility = () =>{
+   @action changevisibility = () => {
       this.visibility = !this.visibility;
    }
    
